@@ -1,0 +1,17 @@
+===================================================================== lessons 1
+https://youtu.be/pzs3a-d3kjM?list=PLcvhF2Wqh7DOFHUukzl5g4BP_Bbn6oM00
+
+Створення проекту
+
+https://create-react-app.dev/docs/getting-started
+
+npx create-react-app my-app --template typescript
+
+
+index.tsx
+
+
+
+
+--------------------------------------------------------------------
+00 : 15 : 25
