@@ -1,7 +1,16 @@
 import React from "react";
+import {isBooleanObject, isNumberObject} from "node:util/types";
+
+type TaskType = {
+    id: number
+    title: string
+    isDone: Boolean
+}
+
 
 type PropsType = {
-    title: string
+    title: string,
+    tasks: Array<TaskType>
 
 }
 
@@ -15,10 +24,11 @@ export function TodoList(props: PropsType) {
                 <button>+</button>
             </div>
             <ul>
-                <li><input type="checkbox" checked={false}/><span>Жалюзі в ванну </span></li>
-                <li><input type="checkbox" checked={false}/><span>Штори для пральної </span></li>
-                <li><input type="checkbox" checked={true}/><span>Ніжки для полички під умивальник </span></li>
-                <li><input type="checkbox" checked={false}/><span>Полички в комоді </span></li>
+
+                {/*<li><input type="checkbox" checked={false}/><span>Жалюзі в ванну </span></li>*/}
+                {/*<li><input type="checkbox" checked={false}/><span>Штори для пральної </span></li>*/}
+                {/*<li><input type="checkbox" checked={true}/><span>Ніжки для полички під умивальник </span></li>*/}
+                {/*<li><input type="checkbox" checked={false}/><span>Полички в комоді </span></li>*/}
             </ul>
             <div>
                 <button>All</button>
