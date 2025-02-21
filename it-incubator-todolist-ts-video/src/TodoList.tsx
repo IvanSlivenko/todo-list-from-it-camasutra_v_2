@@ -1,16 +1,18 @@
 import React from "react";
 import {isBooleanObject, isNumberObject} from "node:util/types";
 
-type TaskType = {
+export type TaskType = {
     id: number
     title: string
-    isDone: Boolean
+    isDone: boolean
+    period: string
 }
 
 
 type PropsType = {
     title: string,
-    tasks: Array<TaskType>
+    tasks: Array<TaskType>,
+    removeTask: (task: TaskType) => void
 
 }
 
@@ -25,10 +27,23 @@ export function TodoList(props: PropsType) {
             </div>
             <ul>
 
-                {/*<li><input type="checkbox" checked={false}/><span>Жалюзі в ванну </span></li>*/}
-                {/*<li><input type="checkbox" checked={false}/><span>Штори для пральної </span></li>*/}
-                {/*<li><input type="checkbox" checked={true}/><span>Ніжки для полички під умивальник </span></li>*/}
-                {/*<li><input type="checkbox" checked={false}/><span>Полички в комоді </span></li>*/}
+                {
+                    props.tasks.map(t =>
+                        <li key={t.id}>
+                            <input type="checkbox" checked={t.isDone}/>
+                            <span>{t.title}</span>
+                            <span>{t.period}</span>
+                            <button onClick={() => {
+                                console.log(`Ви маєте намір видалити завдання: ${t.title}`);
+                                props.removeTask(t.id);
+                            }}
+                            >x
+                            </button>
+                        </li>
+                    )
+                }
+
+
             </ul>
             <div>
                 <button>All</button>
