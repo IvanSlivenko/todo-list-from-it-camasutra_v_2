@@ -12,7 +12,7 @@ export type TaskType = {
 type PropsType = {
     title: string,
     tasks: Array<TaskType>,
-    removeTask: (task: TaskType) => void
+    removeTask: Function
 
 }
 
@@ -34,7 +34,7 @@ export function TodoList(props: PropsType) {
                             <span>{t.title}</span>
                             <span>{t.period}</span>
                             <button onClick={() => {
-                                console.log(`Ви маєте намір видалити завдання: ${t.title}`);
+                                // console.log(`Ви маєте намір видалити завдання: ${t.title}`);
                                 props.removeTask(t.id);
                             }}
                             >x
@@ -46,9 +46,9 @@ export function TodoList(props: PropsType) {
 
             </ul>
             <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={()=> console.log("All")}>All</button>
+                <button onClick={()=> console.log("Active")}>Active</button>
+                <button onClick={()=> console.log("Completed")}>Completed</button>
             </div>
 
         </div>
