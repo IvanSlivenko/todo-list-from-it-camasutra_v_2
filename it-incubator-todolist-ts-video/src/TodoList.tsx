@@ -3,7 +3,7 @@ import {isBooleanObject, isNumberObject} from "node:util/types";
 import {FilterValuesType} from "./App";
 
 export type TaskType = {
-    id: number
+    id: string
     title: string
     isDone: boolean
     period: string
@@ -13,8 +13,9 @@ export type TaskType = {
 type PropsType = {
     title: string,
     tasks: Array<TaskType>,
-    removeTask: (id: number) => void,
-    changeFilter: (value: FilterValuesType) => void
+    removeTask: (id: string) => void,
+    changeFilter: (value: FilterValuesType) => void,
+    addTask: () => void
 
 
 }
@@ -26,7 +27,9 @@ export function TodoList(props: PropsType) {
             <h3>{props.title} </h3>
             <div>
                 <input/>
-                <button>+</button>
+                <button onClick={() => props.addTask()}
+                >+
+                </button>
             </div>
             <ul>
 

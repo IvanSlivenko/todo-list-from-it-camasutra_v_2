@@ -23,7 +23,8 @@ https://youtu.be/an32Q6yqqfY?list=PLcvhF2Wqh7DOFHUukzl5g4BP_Bbn6oM00
 
 ===================================================================== lessons 3
 https://youtu.be/7CPS1d3ph-Q?list=PLcvhF2Wqh7DOFHUukzl5g4BP_Bbn6oM00
-
+yarn add uuidv4
+yarn add @types/uuid
 
 ---------------------------------------------------------------------
-00 : 00 : 20
+00 : 18 : 25
