@@ -6,7 +6,7 @@ export function Counter() {
     // let arr = useState(5);
     // let data = arr[0]
     // let setData = arr[1]
-    let[data, setData] = useState(5)
+    let [data, setData] = useState(5)
     return (
         <div>
             <button
@@ -17,6 +17,8 @@ export function Counter() {
         </div>
     )
 }
+
+export  type FilterValuesType = "all" | "completed" | "active";
 
 function App() {
 
@@ -33,15 +35,14 @@ function App() {
     // let tasks = arr[0];
     // let setTask = arr[1];
 
-    let [tasks, setTasks] = useState([
+    let [tasks, setTasks] = useState<Array<TaskType>>([
         {id: 1, title: "Жалюзі у ванній", isDone: false, period: " 22.02.2025"},
-        {id: 2, title: "Штори для пральної", isDone: false, period: " 22.02.2025"},
-        {id: 3, title: "Ніжки для умивальника", isDone: false, period: " 22.02.2025"},
+        {id: 2, title: "Штори для пральної", isDone: true, period: " 22.02.2025"},
+        {id: 3, title: "Ніжки для умивальника", isDone: true, period: " 22.02.2025"},
         {id: 4, title: "Декорування комунікацій в туалеті", isDone: false, period: " 22.02.2025"}
 
     ])
-    let [filter, setFilter] = useState("active");
-
+    let [filter, setFilter] = useState<FilterValuesType>("all");
 
 
     function removeTask(id: number) {
@@ -49,14 +50,23 @@ function App() {
         setTasks(filteredTasks)
     }
 
-    let tasksForTofdolist= tasks;
-    if(filter === "completed"){
-        tasksForTofdolist=tasks.filter(t=> t.isDone === true)
-    }
-    if(filter === "active"){
-        tasksForTofdolist=tasks.filter(t=> t.isDone === false)
+    function changeFilter(value:FilterValuesType){
+        setFilter(value)
     }
 
+
+
+    let tasksForTodolist = tasks;
+    if (filter !== "completed") {
+        tasksForTodolist = tasks.filter(t => t.isDone === true)
+    }
+    if (filter !== "active") {
+        tasksForTodolist = tasks.filter(t => t.isDone === false)
+    }
+
+    if (filter === "all") {
+        tasksForTodolist = tasks;
+    }
 
 
 
@@ -64,8 +74,10 @@ function App() {
         <div className="App">
             <TodoList
                 title="Що зробити ?"
-                tasks={tasksForTofdolist}
+                tasks={tasksForTodolist}
                 removeTask={removeTask}
+                changeFilter={changeFilter}
+
             />
 
 
