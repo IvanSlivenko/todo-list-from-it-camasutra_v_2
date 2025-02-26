@@ -16,6 +16,7 @@ type PropsType = {
     removeTask: (id: string) => void,
     changeFilter: (value: FilterValuesType) => void,
     addTask: (currentTitle: string) => void
+    changeTaskStatus: (taskId: string, status: boolean) => void
 
 
 }
@@ -53,6 +54,7 @@ export function TodoList(props: PropsType) {
         props.changeFilter("active")
     }
 
+
     return (
         <div>
             <h3>{props.title} </h3>
@@ -69,11 +71,20 @@ export function TodoList(props: PropsType) {
                 {
                     props.tasks.map(t => {
 
-                        const onRemoveHandler = () => {
-                            props.removeTask(t.id);
-                        }
+                            const onRemoveHandler = () => {
+                                props.removeTask(t.id);
+                            }
+
+                            const onChangeHandler = (e: ChangeEvent<HTMLInputElement>)=> {
+                                // console.log(`буде змінено статус для задання ${t.title} на ${!e.currentTarget.checked}`);
+                                props.changeTaskStatus(t.id, e.currentTarget.checked)
+                            }
                             return <li key={t.id}>
-                                <input type="checkbox" checked={t.isDone}/>
+                                <input
+                                    type="checkbox"
+                                    checked={t.isDone}
+                                    onChange={onChangeHandler}
+                                />
                                 <span>{t.title}</span>
                                 <span> Дата завдання: {t.period}</span>
                                 <button onClick={onRemoveHandler}>x</button>

@@ -51,20 +51,28 @@ function App() {
         setTasks(filteredTasks)
     }
 
-    function addTask(currentTitle: string){
-        let newTask={
+    function addTask(currentTitle: string) {
+        let newTask = {
             id: v1(),
             title: currentTitle,
             isDone: false,
             period: "25.02.2025"
         };
-        let newTasks=[newTask, ...tasks]
+        let newTasks = [newTask, ...tasks]
         setTasks(newTasks);
     }
 
+    function changeStatus(taskId: string, status: boolean) {
+        let task = tasks.find(t => t.id === taskId);
+        if (task) {
+            task.isDone = status;
+        }
+        setTasks([...tasks]);
+
+    }
 
 
-    function changeFilter(value:FilterValuesType){
+    function changeFilter(value: FilterValuesType) {
         setFilter(value)
     }
 
@@ -76,9 +84,6 @@ function App() {
         tasksForTodolist = tasks.filter(t => t.isDone === false)
     }
 
-    // if (filter === "all") {
-    //     tasksForTodolist = tasks;
-    // }
 
     return (
         <div className="App">
@@ -88,6 +93,8 @@ function App() {
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
+                changeTaskStatus={changeStatus}
+
 
             />
 
