@@ -69,16 +69,16 @@ function App() {
     }
 
     let tasksForTodolist = tasks;
-    if (filter !== "completed") {
+    if (filter === "completed") {
         tasksForTodolist = tasks.filter(t => t.isDone === true)
     }
-    if (filter !== "active") {
+    if (filter === "active") {
         tasksForTodolist = tasks.filter(t => t.isDone === false)
     }
 
-    if (filter === "all") {
-        tasksForTodolist = tasks;
-    }
+    // if (filter === "all") {
+    //     tasksForTodolist = tasks;
+    // }
 
     return (
         <div className="App">
