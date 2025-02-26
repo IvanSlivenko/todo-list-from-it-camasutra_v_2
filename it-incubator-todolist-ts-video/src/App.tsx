@@ -51,10 +51,10 @@ function App() {
         setTasks(filteredTasks)
     }
 
-    function addTask(){
+    function addTask(currentTitle: string){
         let newTask={
             id: v1(),
-            title: "NeW Task",
+            title: currentTitle,
             isDone: false,
             period: "25.02.2025"
         };

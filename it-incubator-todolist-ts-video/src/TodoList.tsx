@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {isBooleanObject, isNumberObject} from "node:util/types";
 import {FilterValuesType} from "./App";
 
@@ -15,19 +15,36 @@ type PropsType = {
     tasks: Array<TaskType>,
     removeTask: (id: string) => void,
     changeFilter: (value: FilterValuesType) => void,
-    addTask: () => void
+    addTask: (currentTitle: string) => void
 
 
 }
 
 export function TodoList(props: PropsType) {
 
+    const [newTaskTitle, setNewTaskTitle] = useState("");
+
     return (
         <div>
             <h3>{props.title} </h3>
             <div>
-                <input/>
-                <button onClick={() => props.addTask()}
+                <input
+                    value={newTaskTitle}
+                    onChange={(e) => {
+                        setNewTaskTitle(e.currentTarget.value)
+                    }}
+                    onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                            props.addTask(newTaskTitle);
+                            setNewTaskTitle("");
+                        }
+                    }}
+
+                />
+                <button onClick={() => {
+                    props.addTask(newTaskTitle);
+                    setNewTaskTitle("");
+                }}
                 >+
                 </button>
             </div>
