@@ -30,13 +30,30 @@ export function TodoList(props: PropsType) {
     }
 
     const onKeyPresHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if(newTaskTitle.trim() === ""){
+            return;
+        }
+
+        if(newTaskTitle === "херня"){
+            return;
+        }
+
         if (e.key === "Enter") {
             props.addTask(newTaskTitle);
             setNewTaskTitle("");
         }
     }
 
+
+
     const addTask = () => {
+        if(newTaskTitle.trim() === ""){
+            return;
+        }
+
+        if(newTaskTitle === "херня"){
+            return;
+        }
         props.addTask(newTaskTitle);
         setNewTaskTitle("");
     }

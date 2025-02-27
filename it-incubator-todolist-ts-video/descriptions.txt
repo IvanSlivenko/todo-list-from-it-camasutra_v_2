@@ -34,4 +34,4 @@ yarn add @types/uuid
 https://youtu.be/ehx5HrJoVfo?list=PLcvhF2Wqh7DOFHUukzl5g4BP_Bbn6oM00
 
 ---------------------------------------------------------------------
-00 :  35 : 18
+00 :  40 : 41
