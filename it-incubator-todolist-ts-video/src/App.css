@@ -9,3 +9,25 @@
 .App > div {
   margin-right: 50px;
 }
+
+.error {
+  /*border: red 1px solid;*/
+  border: saddlebrown;
+  background: saddlebrown;
+}
+
+.error-message {
+  /*color: red;*/
+  color: yellow;
+}
+.active-filter {
+  /*background-color: aquamarine;*/
+  background-color: yellow;
+  color: saddlebrown;
+}
+.is-done {
+  opacity: 0.5;
+}
+
+
+
