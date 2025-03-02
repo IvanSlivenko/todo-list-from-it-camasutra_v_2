@@ -41,7 +41,7 @@ export function TodoList(props: PropsType) {
     const onKeyPresHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (newTaskTitle.trim() === "" && newTaskPeriod.trim() === "") {
-            setError("Field is requared")
+            setError("Назва та Виконати до - обов'язкові")
             return;
         }
 
@@ -62,7 +62,7 @@ export function TodoList(props: PropsType) {
 
     const addTask = () => {
         if (newTaskTitle.trim() === "" ||  newTaskPeriod.trim() === "") {
-            setError("Field is requared")
+            setError("Назва та Виконати до - обов'язкові")
             return;
         }
 
