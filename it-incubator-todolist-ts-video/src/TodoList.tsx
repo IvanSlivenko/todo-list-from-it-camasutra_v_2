@@ -17,7 +17,7 @@ type PropsType = {
     tasks: Array<TaskType>,
     removeTask: (id: string, todolistId: string) => void,
     changeFilter: (value: FilterValuesType, todolistId: string) => void,
-    addTask: (currentTitle: string, todolistId: string) => void
+    addTask: (currentTitle: string, todolistId: string, period: string) => void
     changeTaskStatus: (taskId: string, status: boolean, todolistId: string) => void
     filter: FilterValuesType
     removeTodolist: (todolistId: string ) => void
@@ -28,15 +28,19 @@ type PropsType = {
 export function TodoList(props: PropsType) {
 
     const [newTaskTitle, setNewTaskTitle] = useState("");
+    const [newTaskPeriod, setNewTaskPeriod] = useState("");
     const [error, setError] = useState<string | null>(null);
 
     const onNewTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setNewTaskTitle(e.currentTarget.value)
     }
+    const onNewPeriodChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setNewTaskPeriod(e.currentTarget.value)
+    }
 
     const onKeyPresHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
-        if (newTaskTitle.trim() === "") {
+        if (newTaskTitle.trim() === "" && newTaskPeriod.trim() === "") {
             setError("Field is requared")
             return;
         }
@@ -46,16 +50,18 @@ export function TodoList(props: PropsType) {
             return;
         }
 
+
         if (e.key === "Enter") {
-            props.addTask(newTaskTitle, props.id);
+            props.addTask(newTaskTitle, props.id, newTaskPeriod);
             setNewTaskTitle("");
+            setNewTaskPeriod("");
 
         }
     }
 
 
     const addTask = () => {
-        if (newTaskTitle.trim() === "") {
+        if (newTaskTitle.trim() === "" ||  newTaskPeriod.trim() === "") {
             setError("Field is requared")
             return;
         }
@@ -63,9 +69,11 @@ export function TodoList(props: PropsType) {
         if (newTaskTitle === "херня") {
             return;
         }
-        props.addTask(newTaskTitle, props.id);
+
+        props.addTask(newTaskTitle, props.id, newTaskPeriod);
         setNewTaskTitle("");
         setError("");
+        setNewTaskPeriod("");
     }
 
 
@@ -91,9 +99,23 @@ export function TodoList(props: PropsType) {
                 <button onClick={()=>removeTodolist(props.title)} >x</button> </h3>
             <div>
 
+                <label htmlFor="taskTitle">Назва завдання:</label>
                 <input
+                    id="taskTitle"
+                    type="text"
+                    placeholder="Введіть назву"
                     value={newTaskTitle}
                     onChange={onNewTitleChange}
+                    onKeyDown={onKeyPresHandler}
+                    className={error ? "error" : ""}
+                />
+                <label htmlFor="taskPeriod">Виконати до:</label>
+                <input
+                    id="taskPeriod"
+                    type="text"
+                    placeholder="Введіть дату готовності"
+                    value={newTaskPeriod}
+                    onChange={onNewPeriodChange}
                     onKeyDown={onKeyPresHandler}
                     className={error ? "error" : ""}
                 />
@@ -105,9 +127,9 @@ export function TodoList(props: PropsType) {
                 {
                     props.tasks.map(t => {
 
-                            const onRemoveHandler = () => {
-                                props.removeTask(t.id, props.id);
-                            }
+                        const onRemoveHandler = () => {
+                            props.removeTask(t.id, props.id);
+                        }
 
                             const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
                                 // console.log(`буде змінено статус для задання ${t.title} на ${!e.currentTarget.checked}`);

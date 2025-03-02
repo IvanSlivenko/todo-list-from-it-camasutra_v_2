@@ -58,15 +58,15 @@ function App() {
         let tasks = tasksObj[todolistId];
         let filteredTasks = tasks.filter(t => t.id !== id)
         tasksObj[todolistId]=filteredTasks;
-        setTasks(tasksObj)
+        setTasks({...tasksObj})
     }
 
-    function addTask(currentTitle: string, todolistId: string) {
+    function addTask(currentTitle: string, todolistId: string, period: string) {
         let newTask = {
             id: v1(),
             title: currentTitle,
             isDone: false,
-            period: "25.02.2025"
+            period: period
         };
         let tasks = tasksObj[todolistId];
         let newTasks = [newTask, ...tasks]
