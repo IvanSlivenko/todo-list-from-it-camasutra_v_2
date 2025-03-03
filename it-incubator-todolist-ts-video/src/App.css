@@ -1,9 +1,34 @@
-.App {
-  padding: 30px;
-  display: flex;
+/*.App {*/
+/*  padding: 30px;*/
+/*  display: flex;*/
 
-  background: black ;
-  color: white;
+/*  background: black ;*/
+/*  color: white;*/
+
+/*  !*display: flex;*!*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  background-color: #f4f4f4;*/
+/*  min-height: 100vh;*/
+/*  padding: 20px;*/
+/*}*/
+
+.App {
+  /*display: flex;*/
+  gap: 20px; /* Відстань між TodoList */
+  padding: 20px;
+  justify-content: flex-start; /* Вирівнює списки зліва */
+  align-items: flex-start; /* Вирівнює по верхньому краю */
+  flex-wrap: wrap; /* Додає перенесення на новий рядок */
+}
+.todoList-container {
+  display: flex;
+  gap: 20px; /* Відстань між TodoList */
+  padding: 20px;
+  justify-content: flex-start; /* Вирівнює списки зліва */
+  align-items: flex-start; /* Вирівнює по верхньому краю */
+  flex-wrap: wrap; /* Додає перенесення на новий рядок */
+
 }
 
 .App > div {
@@ -20,6 +45,16 @@
   /*color: red;*/
   color: yellow;
 }
+
+/*.error {*/
+/*  border: 1px solid red;*/
+/*}*/
+
+/*.error-message {*/
+/*  color: red;*/
+/*  font-size: 12px;*/
+/*}*/
+
 .active-filter {
   /*background-color: aquamarine;*/
   background-color: yellow;
@@ -28,6 +63,46 @@
 .is-done {
   opacity: 0.5;
 }
+
+.button-container {
+  display: flex;
+  align-items: center; /* Вирівнює по висоті */
+  width: 100%;
+  line-height: normal;
+}
+
+.task-input {
+  flex: 5; /* 80% ширини */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  height: 40px;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.add-task-button {
+  flex: 1; /* 20% ширини */
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  height: 40px;
+  box-sizing: border-box;
+
+  /* Вирівнювання тексту всередині кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal; /* Запобігає зсуву через різницю у висоті тексту */
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
 
 
 

@@ -1,0 +1,109 @@
+.todo-list {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin-bottom: 20px;
+}
+
+.todo-list h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.todo-list h3 button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.task-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.task-period {
+    width: 94.5%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-task-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.add-task-button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border-left: 5px solid #4CAF50;
+}
+
+.task-list li .is-done {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.task-list li button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.filter-buttons button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.filter-buttons .active-filter {
+    background-color: #2196F3;
+    color: white;
+}
