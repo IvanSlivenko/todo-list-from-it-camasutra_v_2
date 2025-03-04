@@ -1,0 +1,58 @@
+.button-container {
+    display: flex;
+    flex-direction: column; /* Елементи йдуть вертикально */
+    align-items: center;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.task-input {
+    flex: 5;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+
+.add-task-button {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Стилі для помилки */
+.error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+    color: #d60000;
+    outline: none;
+}
+
+/* Повідомлення про помилку */
+.error-message {
+    color: #d60000;
+    background-color: #ffe6e6;
+    font-size: 14px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import "./AddItemform.css";
 
 type AddItemFormPropsType = {
     id: string;
@@ -27,7 +28,7 @@ export function AddItemform(props: AddItemFormPropsType) {
 
     const addTask = () => {
         if (newTaskTitle.trim() === "" || newTaskPeriod.trim() === "") {
-            setError("Назва та Виконати до - обов'язкові");
+            setError("Поля: Назва, Дата - обов'язкові");
             return;
         }
 
@@ -52,9 +53,10 @@ export function AddItemform(props: AddItemFormPropsType) {
             value={newTaskPeriod}
             onChange={onNewPeriodChange}
             onKeyDown={onKeyPressHandler}
-            className={error ? "error" : "task-period"}
+            className={error ? "error" : "task-input"}
         />
-        <button className="add-task-button" onClick={addTask}>+</button>
         {error && <div className="error-message">{error}</div>}
+        <button className="add-task-button" onClick={addTask}>+</button>
+
     </div>
 }

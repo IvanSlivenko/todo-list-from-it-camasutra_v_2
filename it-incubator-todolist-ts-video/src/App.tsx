@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, TodoList} from "./TodoList";
 import {v1} from 'uuid';
+import {AddItemformOneField} from "./AddItemformOneField";
+import {AddItemform} from "./AddItemform";
+import {Border} from "./Border";
 
 export function Counter() {
     // let arr = useState(5);
@@ -92,9 +95,7 @@ export function App() {
             console.error(`Task with ID ${taskId} not found in todolist ${todolistId}`);
         }
 
-
     }
-
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
         let todolist = todolists.find(tl => tl.id === todolistId);
@@ -137,17 +138,27 @@ export function App() {
             {id: v1(), title: "PGSQL", isDone: false, period: " 22.02.2025"}]
     })
 
-    // if (filter === "active") {
-    //     let tasksForTodolist = tasks.filter(t => t.isDone === false)
-    // }
-
 
     return (
         <div className="App">
-            <div className="button-container">
-                <input className="task-input"/>
-                <button className="add-task-button">+</button>
-            </div>
+            {/*<Border/>*/}
+            {/*<h3>button-container</h3>*/}
+            {/*<div className="button-container">*/}
+            {/*    <input className="task-input"/>*/}
+            {/*    <button className="add-task-button">+</button>*/}
+            {/*</div>*/}
+            <Border/>
+            <h3>AddItemform</h3>
+            <AddItemform id={"www"} addTask={() => {
+            }}/>
+
+            <Border/>
+            <h3>AddItemformOneField</h3>
+            <AddItemformOneField id={"www"} addTask={() => {
+            }}/>
+            <Border/>
+
+
             <div className="todoList-container">
                 {
                     todolists.map((tl) => {
@@ -180,5 +191,6 @@ export function App() {
             </div>
 
         </div>
-    );
+    )
+        ;
 }

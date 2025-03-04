@@ -1,0 +1,77 @@
+.button-container {
+    display: flex;
+    align-items: center; /* Вирівнює по висоті */
+    width: 100%;
+    line-height: normal;
+}
+
+.task-input {
+    flex: 5; /* 80% ширини */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+
+.add-task-button {
+    flex: 1; /* 20% ширини */
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    height: 40px;
+    box-sizing: border-box;
+
+    /* Вирівнювання тексту всередині кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: normal; /* Запобігає зсуву через різницю у висоті тексту */
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/*.error {*/
+/*    flex: 2.5;*/
+/*    padding: 8px;*/
+/*    font-size: 16px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-right: none;*/
+/*    border-radius: 4px 0 0 4px;*/
+/*    height: 40px;*/
+/*    box-sizing: border-box;*/
+/*    margin-right: 5px;*/
+/*}*/
+
+.error {
+    flex: 1; /* Забезпечує повну ширину */
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid red; /* Виділяє помилку червоним */
+    border-radius: 4px;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 5px 0; /* Додає відстань між верхнім і нижнім полем */
+}
+
+.error-message {
+    /*color: red;*/
+    color: yellow;
+
+    flex: 1; /* Забезпечує повну ширину */
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    /*border: 1px solid red; !* Виділяє помилку червоним *!*/
+    border-radius: 4px;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 5px 0; /* Додає відстань між верхнім і нижнім полем */
+}
