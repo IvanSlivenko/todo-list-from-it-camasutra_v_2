@@ -31,6 +31,10 @@ type TodolistType = {
 
 }
 
+type TaskStateType={
+[key: string]: Array<TaskType>
+}
+
 export function App() {
 
 
@@ -109,8 +113,8 @@ export function App() {
     let todolistId2 = v1();
 
     let [todolists, setTodolists] = useState<Array<TodolistType>>([
-        {id: todolistId1, title: "Що зробити ?", filter: "active"},
-        {id: todolistId2, title: "Що вивчити ?", filter: "completed"}
+        {id: todolistId1, title: "Що зробити ?", filter: "all"},
+        {id: todolistId2, title: "Що вивчити ?", filter: "all"}
     ]);
 
     let removeTodolist = (todolistId: string) => {
@@ -120,7 +124,7 @@ export function App() {
         setTasks({...tasksObj});
     }
 
-    let [tasksObj, setTasks] = useState({
+    let [tasksObj, setTasks] = useState<TaskStateType>({
         [todolistId1]: [
             {id: v1(), title: "Жалюзі у ванній", isDone: false, period: " 22.02.2025"},
             {id: v1(), title: "Штори для пральної", isDone: true, period: " 22.02.2025"},
@@ -139,6 +143,30 @@ export function App() {
     })
 
 
+    function addTodolist(title: string, period: string) {
+        let todolist: TodolistType = {
+            id: v1(),
+            title: title,
+            filter: "all"
+        }
+        setTodolists([todolist,...todolists]);
+        setTasks({...tasksObj,
+            [todolist.id]: []
+        })
+    }
+
+    function addTodolistOneField(title: string) {
+        let todolist: TodolistType = {
+            id: v1(),
+            title: title,
+            filter: "all"
+        }
+        setTodolists([todolist,...todolists]);
+        setTasks({...tasksObj,
+        [todolist.id]: []
+        })
+    }
+
     return (
         <div className="App">
             {/*<Border/>*/}
@@ -149,15 +177,14 @@ export function App() {
             {/*</div>*/}
             <Border/>
             <h3>AddItemform</h3>
-            <AddItemform id={"www"} addTask={() => {
-            }}/>
+
+            <AddItemform addItem={addTodolist}/>
 
             <Border/>
             <h3>AddItemformOneField</h3>
-            <AddItemformOneField id={"www"} addTask={() => {
-            }}/>
-            <Border/>
 
+            <AddItemformOneField addItem={addTodolistOneField}/>
+            <Border/>
 
             <div className="todoList-container">
                 {

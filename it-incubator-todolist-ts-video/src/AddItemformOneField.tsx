@@ -2,8 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import './AddItemformOneField.css';
 
 type AddItemFormPropsType = {
-    id: string;
-    addTask: (currentTitle: string, todolistId: string, period: string) => void;
+    addItem: (currentTitle: string) => void;
 }
 
 export function AddItemformOneField(props: AddItemFormPropsType) {
@@ -27,12 +26,12 @@ export function AddItemformOneField(props: AddItemFormPropsType) {
     }
 
     const addTask = () => {
-        if (newTaskTitle.trim() === "" || newTaskPeriod.trim() === "") {
-            setError("Дата - обов'язкова");
+        if (newTaskTitle.trim() === "") {
+            setError("Поле - обов'язкове");
             return;
         }
 
-        props.addTask(newTaskTitle, props.id, newTaskPeriod);
+        props.addItem(newTaskTitle);
         setNewTaskTitle("");
         setNewTaskPeriod("");
         setError(null);

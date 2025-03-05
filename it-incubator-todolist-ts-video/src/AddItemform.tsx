@@ -2,8 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import "./AddItemform.css";
 
 type AddItemFormPropsType = {
-    id: string;
-    addTask: (currentTitle: string, todolistId: string, period: string) => void;
+    addItem: (currentTitle: string,  period: string) => void;
 }
 
 export function AddItemform(props: AddItemFormPropsType) {
@@ -32,7 +31,7 @@ export function AddItemform(props: AddItemFormPropsType) {
             return;
         }
 
-        props.addTask(newTaskTitle, props.id, newTaskPeriod);
+        props.addItem(newTaskTitle, newTaskPeriod);
         setNewTaskTitle("");
         setNewTaskPeriod("");
         setError(null);

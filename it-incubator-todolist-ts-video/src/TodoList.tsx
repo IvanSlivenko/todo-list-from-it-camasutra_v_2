@@ -27,6 +27,9 @@ export function TodoList(props: PropsType) {
     const [newTaskPeriod, setNewTaskPeriod] = useState("");
     const [error, setError] = useState<string | null>(null);
 
+    const CurrentAddTask = (title: string, period: string )=>{
+        props.addTask(title, props.id, period);
+    }
 
     return (
         <div className="todo-list">
@@ -34,7 +37,7 @@ export function TodoList(props: PropsType) {
                 <button onClick={() => props.removeTodolist(props.id)}>x</button>
             </h3>
 
-            <AddItemform id={props.id} addTask={props.addTask}/>
+            <AddItemform  addItem={CurrentAddTask}/>
             <ul className="task-list">
                 {props.tasks.map(t => (
                     <li key={t.id}>
